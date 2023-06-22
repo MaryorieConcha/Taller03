@@ -3,13 +3,15 @@ package com.example.inmuebles.model;
 public class Inmueble {
 	private int cod_inmueble;
 	private String tipoConstruccion;
-	private String ubicacionGeografica;
+	private String ciudad;
+	private String direccion;
 	private int precio;
 
-	public Inmueble(int cod_inmueble, String tipoConstruccion, String ubicacionGeografica, int precio) {
+	public Inmueble(int cod_inmueble,String tipoConstruccion,String ciudad,String direccion,int precio) {
 		this.cod_inmueble = cod_inmueble;
 		this.tipoConstruccion = tipoConstruccion;
-		this.ubicacionGeografica = ubicacionGeografica;
+		this.ciudad = ciudad;
+		this.direccion = direccion;
 		this.precio = precio;
 	}
 
@@ -29,12 +31,20 @@ public class Inmueble {
 		this.tipoConstruccion = tipoConstruccion;
 	}
 
-	public String getUbicacionGeografica() {
-		return ubicacionGeografica;
+	public String getCiudad() {
+		return ciudad;
 	}
 
-	public void setUbicacionGeografica(String ubicacionGeografica) {
-		this.ubicacionGeografica = ubicacionGeografica;
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 
 	public int getPrecio() {
@@ -47,7 +57,7 @@ public class Inmueble {
 
 	@Override
 	public String toString() {
-		return this.cod_inmueble+", "+this.tipoConstruccion+", "+this.ubicacionGeografica + '\'' +
+		return this.cod_inmueble+", "+this.tipoConstruccion+", "+this.ciudad+", "+this.direccion+ '\'' +
 				", precio: " + this.precio;
 	}
 }

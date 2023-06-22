@@ -1,10 +1,8 @@
 package com.example.inmuebles.controller;
 
 import com.example.inmuebles.model.Inmueble;
-import com.example.inmuebles.model.Vendedor;
 import com.example.inmuebles.model.data.DBGenerator;
 import com.example.inmuebles.model.data.dao.InmuebleDAO;
-import com.example.inmuebles.model.data.dao.VendedorDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -40,12 +38,13 @@ public class InmuebleServlet extends HttpServlet {
                 && req.getParameter("precio").length()!=0){
             int cod_inmueble = Integer.parseInt(req.getParameter("cod_inmueble"));
             String tipoConstruccion = req.getParameter("tipoConstruccion");
-            String ubicacionGeografica = req.getParameter("ubicacionGeografica");
+            String ciudad = req.getParameter("ciudad");
+            String direccion = req.getParameter("direccion");
             int precio = Integer.parseInt(req.getParameter("precio"));
-            Inmueble inmueble = new Inmueble(cod_inmueble, tipoConstruccion, ubicacionGeografica, precio);
+            Inmueble inmueble = new Inmueble(cod_inmueble,tipoConstruccion,ciudad,direccion,precio);
             try {
                 if (agregarInmueble(inmueble)){
-                    req.setAttribute("producto", inmueble);
+                    req.setAttribute("inmueble", inmueble);
                     respuesta = req.getRequestDispatcher("/index.jsp");
                 }
             } catch (ClassNotFoundException e) {
@@ -57,12 +56,12 @@ public class InmuebleServlet extends HttpServlet {
 
     private boolean agregarInmueble(Inmueble inmueble) throws ClassNotFoundException {
         DSLContext query = DBGenerator.conectarBD("InmueblesBD");
-        List<Inmueble> inmuebles = InmuebleDAO.obtenerInmuebles(query,"cod_inmueble", inmueble.getCod_inmueble());
+        List<Inmueble> inmuebles = InmuebleDAO.obtenerInmueble(query,"cod_inmueble", inmueble.getCod_inmueble());
         if (inmuebles.size()!=0){
             return false;
         }
         else {
-            InmuebleDAO.agregarInmueble(query, inmuebles);
+            InmuebleDAO.agregarInmueble(query, inmueble);
             return true;
         }
     }

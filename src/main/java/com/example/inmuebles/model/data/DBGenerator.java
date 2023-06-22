@@ -50,7 +50,8 @@ public class DBGenerator {
     private static void crearTablaInmueble(DSLContext create){
         create.createTableIfNotExists("Producto").column("cod_inmueble",INTEGER)
                 .column("tipoConstruccion",VARCHAR(100))
-                .column("ubicacionGeografica",VARCHAR(100))
+                .column("ciudad",VARCHAR(70))
+                .column("direccion",VARCHAR(100))
                 .column("precio",INTEGER)
                 .constraint(primaryKey("cod_inmueble")).execute();
 

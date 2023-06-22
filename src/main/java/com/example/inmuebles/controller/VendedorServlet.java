@@ -45,7 +45,7 @@ public class VendedorServlet extends HttpServlet {
             Vendedor vendedor = new Vendedor(nombre, rut, direccion, tituloProfesional,estadoCivil);
             try {
                 if (agregarVendedor(vendedor)){
-                    req.setAttribute("producto", vendedor);
+                    req.setAttribute("vendedor", vendedor);
                     respuesta = req.getRequestDispatcher("/index.jsp");
                 }
             } catch (ClassNotFoundException e) {
