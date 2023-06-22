@@ -9,11 +9,11 @@
 <h1 id="tituloEncabezado" class="encabezado">Menú de selección</h1>
 <br>
 <div class="centrar">
-    <form action="#" method="get">
+    <form action="vendedor" method="get">
         <input type="submit" value="Agregar Vendedor" class="boton">
     </form>
     <br>
-    <form action="#" method="get">
+    <form action="inmueble" method="get">
         <input type="submit" value="Agregar Inmueble" class="boton">
     </form>
     <br>

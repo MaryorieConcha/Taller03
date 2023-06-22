@@ -27,15 +27,15 @@ public class InmuebleServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher respuesta = req.getRequestDispatcher("/agregarInmuebles.jsp");
+        RequestDispatcher respuesta = req.getRequestDispatcher("/agregarInmueble.jsp");
         respuesta.forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher respuesta = req.getRequestDispatcher("/agregarInmuebles.jsp");
-        if (req.getParameter("cod_inmueble").length()!=0 && req.getParameter("tipoconstruccion").length()!=0 && req.getParameter("ubicacionGeografica").length()!=0
-                && req.getParameter("precio").length()!=0){
+        RequestDispatcher respuesta = req.getRequestDispatcher("/agregarInmueble.jsp");
+        if (req.getParameter("cod_inmueble").length()!=0 && req.getParameter("tipoConstruccion").length()!=0 && req.getParameter("ciudad").length()!=0
+                && req.getParameter("direccion").length()!=0 && req.getParameter("precio").length()!=0){
             int cod_inmueble = Integer.parseInt(req.getParameter("cod_inmueble"));
             String tipoConstruccion = req.getParameter("tipoConstruccion");
             String ciudad = req.getParameter("ciudad");
